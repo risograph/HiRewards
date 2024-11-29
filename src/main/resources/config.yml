@@ -1,0 +1,11 @@
+words:
+  - ".*welcome*."
+  - ".*hi*."
+  - ".*'?ello*."
+  - ".*hello*."
+  - ".*what'?s up*."
+  - ".*'?sup*."
+  - ".*o/*."
+rewards:
+  - "xp add %player% 10"
+  - "give %player% diamond 1"

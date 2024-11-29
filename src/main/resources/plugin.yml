@@ -1,0 +1,6 @@
+name: HiRewards
+version: ${project.version}
+main: ri.so.hiRewards.HiRewards
+api-version: '1.21'
+authors: [ riso ]
+description: Rewards players for greeting others!
