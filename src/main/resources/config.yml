@@ -1,23 +1,50 @@
 # HiRewards
+# by riso
+#
 # HiRewards is a plugin that gives customizable rewards to players
 # who greet incoming players or those joining for the first time!
 
-# Words
+# Valid Greetings
 # - The words which you would like to trigger the reward
 # - Supports Regex
-words:
+# Example:
+#   - ".*welcome*."
+#   - ".*h?ello*."
+greetings:
   - ".*welcome*."
   - ".*hi*."
-  - ".*'?ello*."
-  - ".*hello*."
+  - ".*h?ello*."
   - ".*what'?s up*."
-  - ".*'?sup*."
+  - ".*sup*."
   - ".*o/*."
+
+# Greeting Window
+# In SECONDS, amount of time all players have to greet incoming
+# players before they can no longer receive a reward.
+#
+# Default: 20
+greeting_window: 20
+
+# Rewards
+# Run as commands, rewards that are given to the player
+# after a valid greeting.
+# Supports all kinds of commands, so consider sending
+# tellraw, title, or playsound as well!
+#
+# Example:
+#   - "eco give %player% 25"
+#   - "give %player% diamond 1"
 rewards:
-  - "xp add %player% 10"
-  - "give %player% diamond 1"
-# rewards:
-#   firstjoin:
-#     - "xp add %player% 25
-#   join:
-#     - "xp add %player% 10"
+  firstjoin:
+    - "xp add %player% 25"
+    - "give %player% diamond 1"
+  join:
+    - "xp add %player% 10"
+    - "give %player% emerald 1"
+
+# Reward Cooldown
+# In HOURS, the time required for player to receive reward for
+# greeting the same player.
+#
+# Default: 8
+reward_cooldown: 8

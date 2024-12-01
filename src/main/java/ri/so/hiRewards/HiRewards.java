@@ -12,9 +12,14 @@ public final class HiRewards extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
         PlayerJoinListener joinListener = new PlayerJoinListener();
         getServer().getPluginManager().registerEvents(joinListener, this);
-        getServer().getPluginManager().registerEvents(new PlayerChatListener(joinListener), this);
+        getServer().getPluginManager().registerEvents(new PlayerChatListener(joinListener, this), this);
+
         log.info("Plugin loaded successfully.");
     }
 }

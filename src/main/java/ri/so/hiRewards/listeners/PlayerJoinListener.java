@@ -14,22 +14,21 @@ public class PlayerJoinListener implements Listener {
 
     private Player latestJoinPlayer;
     private long latestJoinTimestamp;
+    private boolean latestJoinIsFirstJoin;
 
     @EventHandler
     public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent e) {
         Player p = e.getPlayer();
         latestJoinPlayer = p;
         latestJoinTimestamp = System.currentTimeMillis();
+        latestJoinIsFirstJoin = !p.hasPlayedBefore();
         p.sendMessage("Welcome, " + latestJoinPlayer.getDisplayName() + ".");
         log.info("Player " + latestJoinPlayer.getDisplayName() + " joined at " + latestJoinTimestamp);
+        log.info("Player has joined before?" + latestJoinIsFirstJoin);
     }
 
-    public Player getLatestJoinPlayer() {
-        return latestJoinPlayer;
-    }
-
-    public long getLatestJoinTimestamp() {
-        return latestJoinTimestamp;
-    }
+    public Player getLatestJoinPlayer() { return latestJoinPlayer; }
+    public long getLatestJoinTimestamp() { return latestJoinTimestamp; }
+    public boolean getLatestJoinIsFirstJoin() { return latestJoinIsFirstJoin; }
 
 }

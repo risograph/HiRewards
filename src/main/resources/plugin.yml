@@ -4,8 +4,3 @@ main: ri.so.hiRewards.HiRewards
 api-version: '1.21'
 authors: [ riso ]
 description: Rewards players for greeting others!
-commands:
-  hirewards:
-    description: Main command for HiRewards.
-    usage: 'Usage: /hirewards <reload|reset> [player]'
-    aliases: [hr, hi]
