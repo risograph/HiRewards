@@ -1,3 +1,10 @@
+# HiRewards
+# HiRewards is a plugin that gives customizable rewards to players
+# who greet incoming players or those joining for the first time!
+
+# Words
+# - The words which you would like to trigger the reward
+# - Supports Regex
 words:
   - ".*welcome*."
   - ".*hi*."
@@ -9,3 +16,8 @@ words:
 rewards:
   - "xp add %player% 10"
   - "give %player% diamond 1"
+# rewards:
+#   firstjoin:
+#     - "xp add %player% 25
+#   join:
+#     - "xp add %player% 10"
