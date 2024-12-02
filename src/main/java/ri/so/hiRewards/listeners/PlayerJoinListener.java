@@ -24,7 +24,7 @@ public class PlayerJoinListener implements Listener {
         latestJoinIsFirstJoin = !p.hasPlayedBefore();
         p.sendMessage("Welcome, " + latestJoinPlayer.getDisplayName() + ".");
         log.info("Player " + latestJoinPlayer.getDisplayName() + " joined at " + latestJoinTimestamp);
-        log.info("Player has joined before?" + latestJoinIsFirstJoin);
+        log.info("Player is joining for the first time? " + latestJoinIsFirstJoin);
     }
 
     public Player getLatestJoinPlayer() { return latestJoinPlayer; }

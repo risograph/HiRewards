@@ -1,6 +1,7 @@
 package ri.so.hiRewards;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import ri.so.hiRewards.db.DatabaseInitializer;
 import ri.so.hiRewards.listeners.PlayerChatListener;
 import ri.so.hiRewards.listeners.PlayerJoinListener;
 
@@ -16,10 +17,13 @@ public final class HiRewards extends JavaPlugin {
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
+        DatabaseInitializer.initialize();
+
         PlayerJoinListener joinListener = new PlayerJoinListener();
         getServer().getPluginManager().registerEvents(joinListener, this);
         getServer().getPluginManager().registerEvents(new PlayerChatListener(joinListener, this), this);
 
         log.info("Plugin loaded successfully.");
     }
+
 }
