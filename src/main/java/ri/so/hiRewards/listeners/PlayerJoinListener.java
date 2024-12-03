@@ -10,8 +10,6 @@ import static org.bukkit.Bukkit.getLogger;
 
 public class PlayerJoinListener implements Listener {
 
-    Logger log = getLogger();
-
     private Player latestJoinPlayer;
     private long latestJoinTimestamp;
     private boolean latestJoinIsFirstJoin;
@@ -22,9 +20,9 @@ public class PlayerJoinListener implements Listener {
         latestJoinPlayer = p;
         latestJoinTimestamp = System.currentTimeMillis();
         latestJoinIsFirstJoin = !p.hasPlayedBefore();
-        p.sendMessage("Welcome, " + latestJoinPlayer.getDisplayName() + ".");
-        log.info("Player " + latestJoinPlayer.getDisplayName() + " joined at " + latestJoinTimestamp);
-        log.info("Player is joining for the first time? " + latestJoinIsFirstJoin);
+        //p.sendMessage("Welcome, " + latestJoinPlayer.getDisplayName() + ".");
+        //log.info("Player " + latestJoinPlayer.getDisplayName() + " joined at " + latestJoinTimestamp);
+        //log.info("Player is joining for the first time? " + latestJoinIsFirstJoin);
     }
 
     public Player getLatestJoinPlayer() { return latestJoinPlayer; }
