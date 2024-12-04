@@ -4,3 +4,8 @@ main: ri.so.hiRewards.HiRewards
 api-version: '1.21'
 authors: [ riso ]
 description: Rewards players for greeting others!
+commands:
+  hirewards:
+    description: "Reloads plugin configuration."
+    usage: "/hirewards (reload|about)"
+    aliases: [ "hi" ]

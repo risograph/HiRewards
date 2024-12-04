@@ -1,11 +1,11 @@
 package ri.so.hiRewards;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import ri.so.hiRewards.commands.MainCommands;
 import ri.so.hiRewards.db.Database;
 import ri.so.hiRewards.db.SQLite;
 import ri.so.hiRewards.listeners.PlayerChatListener;
 import ri.so.hiRewards.listeners.PlayerJoinListener;
+import ri.so.hiRewards.commands.MainCommands;
 
 import java.util.logging.Logger;
 
@@ -26,6 +26,8 @@ public final class HiRewards extends JavaPlugin {
         PlayerJoinListener joinListener = new PlayerJoinListener();
         getServer().getPluginManager().registerEvents(joinListener, this);
         getServer().getPluginManager().registerEvents(new PlayerChatListener(joinListener, this), this);
+
+        getCommand("hirewards").setExecutor(new MainCommands());
 
         log.info("Plugin loaded successfully.");
     }
