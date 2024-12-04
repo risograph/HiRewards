@@ -28,6 +28,10 @@ public class MainCommands implements CommandExecutor, TabExecutor {
         }
 
         if (args.length == 1 && args[0].equals("reload")) {
+            if (!sender.hasPermission("hirewards.reload")) {
+                sender.sendMessage(ChatColor.RED + "You don't have permission to do this!");
+                return true;
+            }
             plugin.reloadConfig();
             sender.sendMessage("Reloaded config!");
             return true;

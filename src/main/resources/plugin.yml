@@ -7,5 +7,5 @@ description: Rewards players for greeting others!
 commands:
   hirewards:
     description: "Reloads plugin configuration."
-    usage: "/hirewards (reload|about)"
+    usage: "/hirewards [option]"
     aliases: [ "hi" ]
