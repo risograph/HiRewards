@@ -68,4 +68,4 @@ HiRewards by riso
 
 ##### Special thanks to [AmberW](https://modrinth.com/user/AmberW ) (for Emojis in Icon Art)
 
-##### This plugin is protected under the [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en) license.
+##### This plugin is protected under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en) license.
