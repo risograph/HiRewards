@@ -1,4 +1,4 @@
-# HiRewards
+# <img src="/assets/logo.svg" alt="logo" width="30"> HiRewards
 
 HiRewards is a lightweight plugin that gives custom rewards when players greet a joining player with things like "welcome" or "hello!" The plugin aims to build a strong community by encouraging your player base to greet both new and returning players. The plugin is designed as a very supplementary and unintrusive cousin of the various "chat games" plugins out there.
 
