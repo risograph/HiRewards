@@ -41,13 +41,13 @@ public class PlayerChatListener implements Listener {
         // Config info
         // TODO: don't load this all immediately. probably affects performance
         List<String> regexPatterns         = plugin.getConfig().getStringList("greetings");
-        int greeting_window                = plugin.getConfig().getInt("greeting_window", 20);
-        String firstjoin_sound             = "Sound." + plugin.getConfig().getString("rewards.firstjoin.sound.name", "ENTITY_EXPERIENCE_ORB_PICKUP");
-        String join_sound                  = "Sound." + plugin.getConfig().getString("rewards.join.sound.name", "ENTITY_EXPERIENCE_ORB_PICKUP");
-        int firstjoin_volume               = plugin.getConfig().getInt("rewards.firstjoin.sound.volume", 10);
-        int join_volume                    = plugin.getConfig().getInt("rewards.join.sound.volume", 10);
-        int firstjoin_pitch                = plugin.getConfig().getInt("rewards.firstjoin.sound.pitch", 1);
-        int join_pitch                     = plugin.getConfig().getInt("rewards.join.sound.pitch", 1);
+        int response_time                  = plugin.getConfig().getInt("response_time", 20);
+        String firstjoin_sound             = plugin.getConfig().getString("rewards.firstjoin.sound.name", "entity.experience_orb.pickup");
+        String join_sound                  = plugin.getConfig().getString("rewards.join.sound.name", "entity.experience_orb.pickup");
+        double firstjoin_volume            = plugin.getConfig().getDouble("rewards.firstjoin.sound.volume", 10);
+        double join_volume                 = plugin.getConfig().getDouble("rewards.join.sound.volume", 10);
+        double firstjoin_pitch             = plugin.getConfig().getDouble("rewards.firstjoin.sound.pitch", 2);
+        double join_pitch                  = plugin.getConfig().getDouble("rewards.join.sound.pitch", 1.7);
         List<String> firstJoinGreetRewards = plugin.getConfig().getStringList("rewards.firstjoin.commands");
         List<String> joinGreetRewards      = plugin.getConfig().getStringList("rewards.join.commands");
         int reward_cooldown                = plugin.getConfig().getInt("reward_cooldown", 8);
@@ -71,14 +71,14 @@ public class PlayerChatListener implements Listener {
         // If message is valid greeting and sender isn't incoming player and reward window hasn't passed.
         // lastGreetingTimestamp == 0 means that player has not greeted the other yet, therefore it succeeds
         // lastGreetingTimestamp != 0 means that player has greeted the other, which means it's up to the comparison
-        if (isGreeting && p != latestJoinPlayer && now - latestJoinTimestamp < greeting_window * 1000L && (lastGreetingTimestamp == 0 || now - lastGreetingTimestamp >= reward_cooldown * 60 * 60 * 1000L)) {
+        if (isGreeting && p != latestJoinPlayer && now - latestJoinTimestamp < response_time * 1000L && (lastGreetingTimestamp == 0 || now - lastGreetingTimestamp >= reward_cooldown * 60 * 60 * 1000L)) {
             plugin.getLogger().log(Level.INFO, p.getDisplayName() + " was rewarded for welcoming " + latestJoinPlayer.getDisplayName() + ".");
             if (latestJoinIsFirstJoin && !firstJoinGreetRewards.isEmpty()) {
                 handleGreetSuccess(firstJoinGreetRewards, p, latestJoinPlayer);
-                p.playSound(p.getLocation(), firstjoin_sound, firstjoin_volume, firstjoin_pitch);
+                p.playSound(p.getLocation(), firstjoin_sound, (float) firstjoin_volume, (float) firstjoin_pitch);
             } else if (!latestJoinIsFirstJoin && !joinGreetRewards.isEmpty()) {
                 handleGreetSuccess(joinGreetRewards, p, latestJoinPlayer);
-                p.playSound(p.getLocation(), join_sound, join_volume, join_pitch);
+                p.playSound(p.getLocation(), join_sound, (float) join_volume, (float) join_pitch);
             }
         }
     }

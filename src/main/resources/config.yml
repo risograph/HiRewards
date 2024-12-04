@@ -1,4 +1,4 @@
-# HiRewards
+# HiRewards 👋
 # by riso
 #
 # HiRewards is a plugin that gives customizable rewards to players
@@ -17,13 +17,14 @@ greetings:
   - ".*what'?s up*."
   - ".*sup*."
   - ".*o/*."
+  - ".*👋*."
 
-# Greeting Window
-# In SECONDS, amount of time all players have to greet incoming
-# players before they can no longer receive a reward.
+# Response Time
+# In SECONDS, amount of time all players have to greet an
+# incoming player before they can no longer receive a reward.
 #
 # Default: 20
-greeting_window: 20
+response_time: 20
 
 # Rewards
 # Run as commands, rewards that are given to the player
@@ -34,17 +35,20 @@ greeting_window: 20
 # Example:
 #   - "eco give %player% 25"
 #   - "give %player% diamond 1"
+#
+# List of all Bukkit-supported sounds:
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
 rewards:
   firstjoin:
     sound:
-      name: ENTITY_EXPERIENCE_ORB_PICKUP
+      name: entity.experience_orb.pickup
       volume: 10
       pitch: 2
     commands:
       - "xp add %player% 25"
   join:
     sound:
-      name: ENTITY_EXPERIENCE_ORB_PICKUP
+      name: entity.experience_orb.pickup
       volume: 10
       pitch: 1.7
     commands:
