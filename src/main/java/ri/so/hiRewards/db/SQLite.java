@@ -14,7 +14,7 @@ public class SQLite extends Database{
     static String dbname;
     public SQLite(HiRewards instance){
         super(instance);
-        dbname = "playerdata";
+        dbname = "playerdata.db";
     }
 
     public String SQLiteCreateTokensTable = """
@@ -36,7 +36,7 @@ public class SQLite extends Database{
             }
         }
         try {
-            if(conn !=null&&!conn.isClosed()){
+            if (conn != null && !conn.isClosed()){
                 return conn;
             }
             Class.forName("org.sqlite.JDBC");
