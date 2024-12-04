@@ -64,8 +64,8 @@ reward_cooldown: 8
 </details>
 
 ---
-My very first plugin! HiRewards by riso
+HiRewards by riso
 
-Special thanks to [AmberW](https://modrinth.com/user/AmberW ) (for Emojis in Icon Art)
+##### Special thanks to [AmberW](https://modrinth.com/user/AmberW ) (for Emojis in Icon Art)
 
-This plugin is protected under the [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en) license.
+##### This plugin is protected under the [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en) license.
