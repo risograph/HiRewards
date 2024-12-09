@@ -12,7 +12,8 @@ HiRewards is a lightweight plugin that gives custom rewards when players greet a
 
 ### Planned Features
 - [ ] Welcoming streak (with increasing rewards)
-- [ ] DiscordSRV integration
+- [ ] Milestone rewards
+- [ ] PlaceholderAPI support
 - [ ] ~~Fabric port (not planned, nor is any other port)~~
 
 <details>
