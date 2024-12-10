@@ -87,7 +87,7 @@ public class PlayerChatListener implements Listener {
     private void handleGreetSuccess(List<String> rewardList, Player p, Player latestJoinPlayer) {
         plugin.getDatabase().setTimestamp(p, latestJoinPlayer, System.currentTimeMillis());
         for (String reward : rewardList) {
-            String command = reward.replace("%player%", p.getDisplayName());
+            String command = reward.replace("%player%", p.getName());
             getScheduler().runTask(plugin, () -> getServer().dispatchCommand(getConsoleSender(), command));
         }
     }
