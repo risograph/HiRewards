@@ -21,7 +21,8 @@ public class SQLite extends Database{
                 CREATE TABLE IF NOT EXISTS playerdata (
                     greeter_uuid TEXT NOT NULL,
                     greeted_uuid TEXT NOT NULL,
-                    greeting_timestamp INTEGER NOT NULL
+                    greeting_timestamp INTEGER NOT NULL,
+                    UNIQUE(greeter_uuid, greeted_uuid)
                 );
             """;
 

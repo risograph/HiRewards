@@ -71,7 +71,16 @@ public class PlayerChatListener implements Listener {
         // If message is valid greeting and sender isn't incoming player and reward window hasn't passed.
         // lastGreetingTimestamp == 0 means that player has not greeted the other yet, therefore it succeeds
         // lastGreetingTimestamp != 0 means that player has greeted the other, which means it's up to the comparison
-        if (isGreeting && p != latestJoinPlayer && now - latestJoinTimestamp < response_time * 1000L && (lastGreetingTimestamp == 0 || now - lastGreetingTimestamp >= reward_cooldown * 60 * 60 * 1000L)) {
+        if (
+                isGreeting
+                && p != latestJoinPlayer
+                && now - latestJoinTimestamp < response_time * 1000L
+                && (
+                    lastGreetingTimestamp == 0
+                    || now - lastGreetingTimestamp >= reward_cooldown * 60 * 60 * 1000L
+                )
+            )
+        {
             plugin.getLogger().log(Level.INFO, p.getDisplayName() + " was rewarded for welcoming " + latestJoinPlayer.getDisplayName() + ".");
             if (latestJoinIsFirstJoin && !firstJoinGreetRewards.isEmpty()) {
                 handleGreetSuccess(firstJoinGreetRewards, p, latestJoinPlayer);
@@ -83,12 +92,11 @@ public class PlayerChatListener implements Listener {
         }
     }
 
-    // TODO: GreetingHandler class containing the remaining code after if isGreeting statement
     private void handleGreetSuccess(List<String> rewardList, Player p, Player latestJoinPlayer) {
-        plugin.getDatabase().setTimestamp(p, latestJoinPlayer, System.currentTimeMillis());
         for (String reward : rewardList) {
             String command = reward.replace("%player%", p.getName());
             getScheduler().runTask(plugin, () -> getServer().dispatchCommand(getConsoleSender(), command));
         }
+        plugin.getDatabase().setTimestamp(p, latestJoinPlayer, System.currentTimeMillis());
     }
 }
