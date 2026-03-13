@@ -65,7 +65,6 @@ reward_cooldown: 8
 </details>
 
 ---
-HiRewards by riso
 
 ##### Special thanks to [AmberW](https://modrinth.com/user/AmberW ) (for Emojis in Icon Art)
 
