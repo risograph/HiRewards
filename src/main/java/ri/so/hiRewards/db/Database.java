@@ -44,7 +44,7 @@ public abstract class Database {
             assert conn != null;
             ps = conn.prepareStatement(
                     "SELECT greeting_timestamp FROM playerdata " +
-                    "WHERE greeter_uuid = ? AND greeted_uuid = ?" +
+                    "WHERE greeter_uuid = ? AND greeted_uuid = ? " +
                     "ORDER BY greeting_timestamp DESC LIMIT 1"
             );
             ps.setString(1, String.valueOf(greeter.getUniqueId()));
@@ -78,14 +78,13 @@ public abstract class Database {
             conn = getSQLConnection();
             assert conn != null;
             ps = conn.prepareStatement(
-                    "INSERT INTO greetings (greeting_timestamp, greeter_uuid, greeted_uuid) " +
+                    "INSERT INTO playerdata (greeting_timestamp, greeter_uuid, greeted_uuid) " +
                     "VALUES (?, ?, ?) " +
-                    "ON DUPLICATE KEY UPDATE greeting_timestamp = ?"
+                    "ON CONFLICT(greeter_uuid, greeted_uuid) DO UPDATE SET greeting_timestamp = excluded.greeting_timestamp"
             );
             ps.setLong(1, time); // The new timestamp value
             ps.setString(2, String.valueOf(greeter.getUniqueId()));
             ps.setString(3, String.valueOf(greeted.getUniqueId()));
-            ps.setLong(4, time);
             ps.executeUpdate();
             return;
         } catch (SQLException ex) {
