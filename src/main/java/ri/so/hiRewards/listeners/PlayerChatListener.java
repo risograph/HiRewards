@@ -22,6 +22,7 @@ public class PlayerChatListener implements Listener {
         this.plugin = plugin;
     }
 
+    @SuppressWarnings("deprecation")
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) throws ClassNotFoundException {
 
